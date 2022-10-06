@@ -12,7 +12,9 @@ const PORT = 3000
 
 // add routing for / path
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World 🌍')
+  res.send(
+    'Hello World !!<br> This project is for udacity in the Full Stack JavaScript Developer path'
+  )
 })
 
 app.use('/api', routes)

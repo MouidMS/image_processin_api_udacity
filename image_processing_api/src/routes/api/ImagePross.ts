@@ -38,7 +38,7 @@ routes.get('/images', async (req: express.Request, res: express.Response): Promi
       res.send('Not find image!')
     }
   } else {
-    res.status(500)
+    res.status(400)
     res.send('Make Sure You Are Input Filename And Width And Height!')
   }
 })

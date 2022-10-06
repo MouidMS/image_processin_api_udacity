@@ -37,7 +37,7 @@ const PORT = 3000;
 //app.use(morgan('short'))
 // add routing for / path
 app.get('/', (req, res) => {
-    res.send('Hello World 🌍');
+    res.send('Hello World !!<br> This project is for udacity in the Full Stack JavaScript Developer path');
 });
 app.use('/api', ImagePross_1.default);
 // start express server
