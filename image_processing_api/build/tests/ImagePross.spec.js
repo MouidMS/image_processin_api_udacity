@@ -39,11 +39,11 @@ describe('Test Input Value', () => {
         expect(response.text).toBe('Make Sure You Are Input Filename And Width And Height!');
     });
 });
-describe('Testing image processing', () => {
-    it('Resolves succesfully when provided the right filename, height and width parameters', async () => {
+describe('Testing Funcation Images', () => {
+    it('when you input right parameters and succesfully', async () => {
         await expectAsync((0, resizeImages_1.ResizeImages)('santamonica', 200, 200)).toBeResolved();
     });
-    it('Rejected when provided the not right filename, height and width parameters', async () => {
+    it('when you input not right parameters and fail', async () => {
         await expectAsync((0, resizeImages_1.ResizeImages)('unknow', 200, 200)).toBeRejected('Not find image!');
     });
 });
