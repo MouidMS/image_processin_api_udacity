@@ -2,6 +2,7 @@ import path from 'path'
 import supertest from 'supertest'
 import app from '../index'
 import fs from 'fs'
+import { ResizeImages } from '../utilities/resizeImages'
 
 // create a request object
 const request = supertest(app)
@@ -41,5 +42,15 @@ describe('Test Input Value', () => {
   it('when you not input height and width together', async () => {
     const response = await request.get(`/api/images?filename=${filename}&width=&height=`)
     expect(response.text).toBe('Make Sure You Are Input Filename And Width And Height!')
+  })
+})
+
+describe('Testing image processing', () => {
+  it('Resolves succesfully when provided the right filename, height and width parameters', async () => {
+    await expectAsync(ResizeImages('santamonica', 200, 200)).toBeResolved()
+  })
+
+  it('Rejected when provided the not right filename, height and width parameters', async () => {
+    await expectAsync(ResizeImages('unknow', 200, 200)).toBeRejected('Not find image!')
   })
 })

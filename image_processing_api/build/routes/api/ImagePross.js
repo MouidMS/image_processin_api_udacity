@@ -31,6 +31,7 @@ routes.get('/images', async (req, res) => {
                 //If there is, but there is no scaling image in the Thumb file, create it immediately
                 const resizedImage = await (0, resizeImages_1.ResizeImages)(filename, height, width);
                 await fs_2.promises.writeFile(imageThumbPath, resizedImage);
+                res.sendFile(path_1.default.resolve(imageThumbPath));
             }
             else {
                 res.sendFile(path_1.default.resolve(imageThumbPath));

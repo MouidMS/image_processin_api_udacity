@@ -7,6 +7,7 @@ const path_1 = __importDefault(require("path"));
 const supertest_1 = __importDefault(require("supertest"));
 const index_1 = __importDefault(require("../index"));
 const fs_1 = __importDefault(require("fs"));
+const resizeImages_1 = require("../utilities/resizeImages");
 // create a request object
 const request = (0, supertest_1.default)(index_1.default);
 describe('Test Input Value', () => {
@@ -36,5 +37,13 @@ describe('Test Input Value', () => {
     it('when you not input height and width together', async () => {
         const response = await request.get(`/api/images?filename=${filename}&width=&height=`);
         expect(response.text).toBe('Make Sure You Are Input Filename And Width And Height!');
+    });
+});
+describe('Testing image processing', () => {
+    it('Resolves succesfully when provided the right filename, height and width parameters', async () => {
+        await expectAsync((0, resizeImages_1.ResizeImages)('santamonica', 200, 200)).toBeResolved();
+    });
+    it('Rejected when provided the not right filename, height and width parameters', async () => {
+        await expectAsync((0, resizeImages_1.ResizeImages)('unknow', 200, 200)).toBeRejected('Not find image!');
     });
 });

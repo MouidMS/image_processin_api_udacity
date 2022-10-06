@@ -30,6 +30,7 @@ routes.get('/images', async (req: express.Request, res: express.Response): Promi
         //If there is, but there is no scaling image in the Thumb file, create it immediately
         const resizedImage = await ResizeImages(filename, height, width)
         await fsPromises.writeFile(imageThumbPath, resizedImage)
+        res.sendFile(path.resolve(imageThumbPath))
       } else {
         res.sendFile(path.resolve(imageThumbPath))
       }
