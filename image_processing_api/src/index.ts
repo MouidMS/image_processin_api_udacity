@@ -4,7 +4,7 @@ import routes from './routes/api/ImagePross'
 //import morgan from 'morgan'
 
 dotenv.config()
-const app = express()
+const app: express.Application = express()
 const PORT = 3000
 
 // HTTP request logger middleware

@@ -19,4 +19,5 @@ const ResizeImagesThumb = (
 ): string => {
   return pathImage
 }
+
 export { ResizeImages, ResizeImagesThumb }

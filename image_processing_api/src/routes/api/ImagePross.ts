@@ -16,7 +16,7 @@ routes.get('/images', async (req: express.Request, res: express.Response): Promi
   //Check if there is an image in the Thumb file or not
   const imageThumbPath: string = ResizeImagesThumb(filename, height, width)
   //Check if the original image exists or not
-  const ckImage: string = path.join('assets/', 'images/', filename + '.jpg')
+  const ImageOriginalPath: string = path.join('assets/', 'images/', filename + '.jpg')
   //Check if the input height and width is correct or incorrect
   const heightAndWidth: boolean = width > 0 && height > 0
   //Check if the file name is spelled correctly
@@ -24,7 +24,7 @@ routes.get('/images', async (req: express.Request, res: express.Response): Promi
 
   //Comprehensive check after collecting results
   if (ckInputFilename == true && heightAndWidth == true) {
-    if (fs.existsSync(ckImage)) {
+    if (fs.existsSync(ImageOriginalPath)) {
       //Check if the original image exists or not
       if (!fs.existsSync(imageThumbPath)) {
         //If there is, but there is no scaling image in the Thumb file, create it immediately
@@ -34,7 +34,7 @@ routes.get('/images', async (req: express.Request, res: express.Response): Promi
         res.sendFile(path.resolve(imageThumbPath))
       }
     } else {
-      res.status(400)
+      res.status(404)
       res.send('Not find image!')
     }
   } else {
@@ -42,4 +42,5 @@ routes.get('/images', async (req: express.Request, res: express.Response): Promi
     res.send('Make Sure You Are Input Filename And Width And Height!')
   }
 })
+
 export default routes

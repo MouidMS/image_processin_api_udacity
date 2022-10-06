@@ -18,14 +18,14 @@ routes.get('/images', async (req, res) => {
     //Check if there is an image in the Thumb file or not
     const imageThumbPath = (0, resizeImages_1.ResizeImagesThumb)(filename, height, width);
     //Check if the original image exists or not
-    const ckImage = path_1.default.join('assets/', 'images/', filename + '.jpg');
+    const ImageOriginalPath = path_1.default.join('assets/', 'images/', filename + '.jpg');
     //Check if the input height and width is correct or incorrect
     const heightAndWidth = width > 0 && height > 0;
     //Check if the file name is spelled correctly
     const ckInputFilename = Object.keys(filename || {}).length != 0;
     //Comprehensive check after collecting results
     if (ckInputFilename == true && heightAndWidth == true) {
-        if (fs_1.default.existsSync(ckImage)) {
+        if (fs_1.default.existsSync(ImageOriginalPath)) {
             //Check if the original image exists or not
             if (!fs_1.default.existsSync(imageThumbPath)) {
                 //If there is, but there is no scaling image in the Thumb file, create it immediately
@@ -37,7 +37,7 @@ routes.get('/images', async (req, res) => {
             }
         }
         else {
-            res.status(400);
+            res.status(404);
             res.send('Not find image!');
         }
     }
