@@ -28,6 +28,20 @@ This project is for udacity in the Full Stack JavaScript Developer path
   <li>Start server:<pre>npm run start</pre>  </li>
 </ul>
 
+<h2>Start the Server:</h2>
+<bold>The server will listen :<bold>
+  
+  <p> port:3000</p> 
+    <p>Brief instructions <br>
+      <a href='http://localhost:3000/'>http://localhost:3000/</a></p> 
+  <p>
+Endpoint to resize images <br>
+          <a href='http://localhost:3000/api/images'>http://localhost:3000/api/images</a></p> 
+  
+  <p>Example:<br>
+            <a href='http://localhost:3000/api/images?filename=santamonica&width=300&height=300'>localhost:3000/api/images?filename=santamonica&width=300&height=300</a></p> 
+
+
 
 <h2>Usage:</h2>
 
