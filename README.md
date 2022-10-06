@@ -65,6 +65,11 @@ To use the Image Processor API, send a request to the endpoint with the followin
 <h4>Build</h4>
 <img src='https://user-images.githubusercontent.com/75043063/194339868-309239f8-8220-40e1-8283-34cbeb9902e1.png'></img>
 
+<h2>Note:</h2>
+<p> <bold>original images: </bold><code>'./assets/images'</code> <br>
+  <bold>thumbnail images in file:   </bold> <code>'./assets/images/thumb'</code>
+</p>
+
 <h2>Reference:</h2>
 <ul>
   <li>sharp:<a href='https://github.com/lovell/sharp'> lovell/sharp - Github </a> </li>
